@@ -1,0 +1,28 @@
+---
+title: "Principle Component Aanalysis"
+output: html_document
+---
+
+## Iin this repository is a data set and codebook from Rod Martin, Patricia Puhlik-Doris, Gwen Larsen, Jeanette Gray, Kelly Weir at the University of Western Ontario about people's sense of humor. 
+
+```{r}
+#Upload data and separate questions from composites
+H1 <- read.csv("humor_data.csv", header = TRUE)
+H2 <- select(H1, 1:32)
+
+#Run pca on the questions
+pca2 <- prcomp(H2, scale = TRUE)
+
+#Look at biplot, see how the questions resolve into four clear directions
+biplot(pca2)
+
+#Look at the loadings, and compare them to the question text in the humor_codebook.txt, do they align with the composites that the authors generated (affiliative, selfenhancing, aggressive, self-defeating)?
+
+pca2$rotation
+
+#They match closely, this is because the survey was designed to resolve into these four components.
+
+```
+
+
+
