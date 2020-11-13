@@ -16,9 +16,14 @@ H2 <- select(H1, 1:32)
 #Run pca on the questions
 pca <- prcomp(H2, scale = TRUE)
 
-#Variance (SSD)
+summary(pca)
 
+#Sum of Squared Distances/Eigenvalues
 
+plot(pca$sdev)
+
+# Loadings
+pca$rotation
 
 #Look at biplot, see how the questions resolve into four clear directions
 biplot(pca)
